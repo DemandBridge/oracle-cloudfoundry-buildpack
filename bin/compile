@@ -74,10 +74,10 @@ open("#{BUILD_DIR}/.profile.d/oracle.sh", "w") do |f|
   f.puts "export TNS_ADMIN=#{ORACLE_HOME}/network/admin"
 end
 
-`cat #{BUILD_DIR}/.profile.d/oracle.sh`
-`ls /app/.apt/usr/lib/x86_64-linux-gnu`
-`echo $LD_LIBRARY_PATH`
-`env`
+puts `cat #{BUILD_DIR}/.profile.d/oracle.sh`
+puts `ls /app/.apt/usr/lib/x86_64-linux-gnu`
+puts `echo $LD_LIBRARY_PATH`
+puts `env`
 
 # Create .so symlink
 `cd #{BUILD_DIR}/#{ORACLE_INSTANT_CLIENT_DIR} && ln -sf libclntsh.so.12.1 libclntsh.so`
