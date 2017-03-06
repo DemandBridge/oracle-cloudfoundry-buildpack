@@ -24,14 +24,14 @@ puts "-----> Found an .oracle.yml"
 ORACLE_CONFIG = YAML.load_file("#{BUILD_DIR}/.oracle.yml")
 
 ORACLE_INSTANT_CLIENT_DIR="vendor/oracle_instantclient"
-ORACLE_INSTANT_CLIENT_URL="https://www.dropbox.com/s/lrohwo0sm8f16hu/oracle-instantclient-full-12.1-linux.x64.tar.gz"
+ORACLE_INSTANT_CLIENT_URL="https://www.dropbox.com/s/vgk0kk43t3gob56/instantclient-all-linux.x64-12.2.0.1.0.zip"
 ORACLE_INSTANT_CLIENT_FILENAME=ORACLE_INSTANT_CLIENT_URL.split(/\//).last
 
 indent "Making directory #{BUILD_DIR}/#{ORACLE_INSTANT_CLIENT_DIR}"
 `mkdir -p #{BUILD_DIR}/#{ORACLE_INSTANT_CLIENT_DIR}`
 
 indent "Downloading and extracting #{ORACLE_INSTANT_CLIENT_FILENAME}"
-result = `curl #{ORACLE_INSTANT_CLIENT_URL} -L -s -o - | tar -xvz -C #{BUILD_DIR}/#{ORACLE_INSTANT_CLIENT_DIR} -f - `
+result = `curl #{ORACLE_INSTANT_CLIENT_URL} -L -o client.zip && unzip client.zip -d #{BUILD_DIR}/#{ORACLE_INSTANT_CLIENT_DIR} && rm client.zip`
 
 unless $?.success?
   indent "Failure while downloading Oracle instant client archive: #{$?}"
