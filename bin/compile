@@ -75,14 +75,12 @@ open("#{BUILD_DIR}/.profile.d/oracle.sh", "w") do |f|
 end
 
 puts `cat #{BUILD_DIR}/.profile.d/oracle.sh`
-puts `ls /app/.apt/usr/lib/x86_64-linux-gnu`
+puts `ls -R #{BUILD_DIR}/.apt`
 puts `echo $LD_LIBRARY_PATH`
 puts `env`
 
 # Create .so symlink
 `cd #{BUILD_DIR}/#{ORACLE_INSTANT_CLIENT_DIR} && ln -sf libclntsh.so.12.1 libclntsh.so`
-
-puts `ORACLE_HOME=#{BUILD_DIR}/#{ORACLE_INSTANT_CLIENT_DIR} LD_LIBRARY_PATH=#{BUILD_DIR}/#{ORACLE_INSTANT_CLIENT_DIR}:$LD_LIRARY_PATH gem install ruby-oci8`
 
 `chmod +x #{BUILD_DIR}/.profile.d/oracle.sh`
 system "/app/.profile.d/oracle.sh"
