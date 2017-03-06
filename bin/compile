@@ -74,9 +74,7 @@ open("#{BUILD_DIR}/.profile.d/oracle.sh", "w") do |f|
 end
 
 # Create .so symlink
-pushd $ORACLE_HOME
-ln -s libclntsh.so.12.1 libclntsh.so
-popd
+`pushd $ORACLE_HOME && ln -s libclntsh.so.12.1 libclntsh.so && popd`
 
 `chmod +x /app/.profile.d/oracle.sh`
 system "/app/.profile.d/oracle.sh"
