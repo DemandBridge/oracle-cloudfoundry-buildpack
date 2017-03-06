@@ -76,6 +76,8 @@ end
 
 `cat #{BUILD_DIR}/.profile.d/oracle.sh`
 `ls /app/.apt/usr/lib/x86_64-linux-gnu`
+`echo $LD_LIBRARY_PATH`
+`env`
 
 # Create .so symlink
 `cd #{BUILD_DIR}/#{ORACLE_INSTANT_CLIENT_DIR} && ln -sf libclntsh.so.12.1 libclntsh.so`
