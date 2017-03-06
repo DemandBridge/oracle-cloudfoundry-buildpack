@@ -76,7 +76,7 @@ end
 # Create .so symlink
 `cd #{BUILD_DIR}/#{ORACLE_INSTANT_CLIENT_DIR} && ln -sf libclntsh.so.12.1 libclntsh.so`
 
-`chmod +x /app/.profile.d/oracle.sh`
+`chmod +x #{BUILD_DIR}/.profile.d/oracle.sh`
 system "/app/.profile.d/oracle.sh"
 indent "Save build LD_LIBRARY_PATH to ENV_DIR"
 
