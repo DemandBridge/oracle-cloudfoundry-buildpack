@@ -23,6 +23,9 @@ puts "-----> Found an .oracle.yml"
 
 ORACLE_CONFIG = YAML.load_file("#{BUILD_DIR}/.oracle.yml")
 
+puts "--> ENV:"
+puts "--> #{ENV.to_h}"
+
 ORACLE_INSTANT_CLIENT_DIR="vendor/oracle_instantclient"
 ORACLE_INSTANT_CLIENT_URL=ENV["ORACLE_INSTANT_CLIENT_URL"]
 ORACLE_INSTANT_CLIENT_FILENAME=ORACLE_INSTANT_CLIENT_URL.split(/\//).last
