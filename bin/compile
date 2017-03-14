@@ -21,6 +21,12 @@ end
 
 puts "-----> Found an .oracle.yml"
 
+unless File.exists?("#{BUILD_DIR}/.oracle.yml")
+  indent ".oracle.yml not found"
+  exit
+end
+
+
 ORACLE_CONFIG = YAML.load_file("#{BUILD_DIR}/.oracle.yml")
 
 ORACLE_INSTANT_CLIENT_DIR="vendor/oracle_instantclient"
