@@ -73,7 +73,7 @@ if ORACLE_CONFIG
   end
   
   LDAP_FILENAME = ORACLE_CONFIG['ldap.ora']
-  if LDAP_FILENAME && File.exists? File.join(BUILD_DIR, LDAP_FILENAME)
+  if LDAP_FILENAME && File.exists?(File.join(BUILD_DIR, LDAP_FILENAME))
     indent "Symlinking #{LDAP_FILENAME} to #{ORACLE_INSTANT_CLIENT_DIR}/network/admin/ldap.ora"
     `ln -sf #{File.join('/app', LDAP_FILENAME)} #{ORACLE_NETWORK_ADMIN_DIR}/ldap.ora`
   end
